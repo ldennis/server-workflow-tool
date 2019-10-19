@@ -306,7 +306,7 @@ def macos(ctx):
     funcs = [
         # Do tasks that require user interaction first.
         (lambda: ssh_keys(ctx), 'Configure SSH Keys'),
-        (lambda: create_dir(ctx, conf, '/data'), 'Create MongoDB Data Directory'),
+        (lambda: create_dir(ctx, conf, str(config.HOME / 'data')), 'Create MongoDB Data Directory'),
         (lambda: create_dir(ctx, conf, '/opt/mongodbtoolchain/revisions'), 'Create MongoDB Toolchain Directory'),
         (lambda: create_dir(ctx, conf, str(config.HOME / 'bin')), 'Create User bin Directory'),
 
